@@ -15,11 +15,13 @@
     <% end %>
     <nav>
       <%=link_to 'GifGenerator', root_path %>
-      <% if current_user != nil %>
-      <%= link_to "#{current_user.username}", user_path(current_user) %>
-      <% else %>
-      <%= link_to 'Log in', login_path %>
-      <%end%>
+      <div id="nav-login">
+        <% if current_user != nil %>
+        <%= link_to "#{current_user.username}", user_path(current_user) %>
+        <% else %>
+        <%= link_to 'Log in', login_path %>
+        <%end%>
+      </div>
     </nav>
     <%= yield %>
   </body>

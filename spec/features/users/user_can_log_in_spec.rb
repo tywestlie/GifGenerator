@@ -16,7 +16,9 @@ describe 'Visitor' do
       fill_in :username, with: username
       fill_in :password, with: password
 
-      click_on 'Log in'
+      within('div.user-login') do
+        click_on 'Log in'
+      end
 
       expect(current_path).to eq(user_path(user))
     end
@@ -35,7 +37,9 @@ describe 'Visitor' do
       fill_in :username, with: username
       fill_in :password, with: password
 
-      click_on 'Log in'
+      within('div.user-login') do
+        click_on 'Log in'
+      end
 
       visit user_path(user)
 
@@ -45,10 +49,27 @@ describe 'Visitor' do
       expect(page).to have_content('GifGenerator')
     end
 
-    it 'should be able to log in from nav' do
+    it 'should be able to log in from nav bar' do
       username = 'Tyler'
       password = 'secret'
+      user = User.create!(username: username, password: password)
 
+      visit '/'
+
+      within('div#nav-login') do
+        click_on 'Log in'
+      end
+
+      expect(current_path).to eq(login_path)
+
+      fill_in :username, with: username
+      fill_in :password, with: password
+
+      within('div.user-login') do
+        click_on 'Log in'
+      end
+
+      expect(current_path).to eq(user_path(user))
     end
   end
 end
