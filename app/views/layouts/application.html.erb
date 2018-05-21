@@ -10,7 +10,16 @@
   </head>
 
   <body>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>
+    <% end %>
     <nav>
+      <%=link_to 'GifGenerator', root_path %>
+      <% if current_user != nil %>
+      <%= link_to "#{current_user.username}", user_path(current_user) %>
+      <% else %>
+      <%= link_to 'Log in', login_path %>
+      <%end%>
     </nav>
     <%= yield %>
   </body>
