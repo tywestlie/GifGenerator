@@ -11,3 +11,5 @@ gifs = ['https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif', 'https://m
 gifs.each do |image_path|
   Gif.create(image_path: image_path)
 end
+
+User.create(username: 'admin', password: 'password', role: 1)

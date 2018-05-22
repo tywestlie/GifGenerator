@@ -1,5 +1,14 @@
+<h1>Gifs</h1>
+<% if current_admin? %>
+<%= link_to 'Add New Gif', new_admin_gif_path %>
+<% end %>
+
 <% @gifs.each do |gif| %>
-  <div>
-    <img class ="gif-<%= gif.id%>" src='<%= gif.image_path %>' alt='<%= gif.id %>'>
+  <div id="gif-<%= gif.id%>">
+    <img  src='<%= gif.image_path %>' alt='<%= gif.id %>'>
+    <%= link_to "Gif-#{gif.id}", gif_path(gif) %>
+  </div>
+  <div class="favorite">
+
   </div>
 <%end%>
