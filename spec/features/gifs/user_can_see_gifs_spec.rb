@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'A user can see gif index' do
-  it 'should show all created gifs' do
+  xit 'should show all created gifs' do
     gif1 = Gif.create(image_path: 'https://media.giphy.com/media/YUHorv6RGc9zyoeupp/giphy.gif')
     gif2 = Gif.create(image_path: 'https://media.giphy.com/media/1APg5tPRfzpn8zSIs2/giphy.gif')
 
