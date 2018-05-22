@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :gifs
   end
+
+  resources :gif, only: [:index]
 end
