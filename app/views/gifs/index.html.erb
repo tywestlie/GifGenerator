@@ -1,0 +1,5 @@
+<% @gifs.each do |gif| %>
+  <div>
+    <img class ="gif-<%= gif.id%>" src='<%= gif.image_path %>' alt='<%= gif.id %>'>
+  </div>
+<%end%>
