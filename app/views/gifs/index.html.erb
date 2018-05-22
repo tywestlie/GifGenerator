@@ -7,6 +7,7 @@
   <div id="gif-<%= gif.id%>">
     <img  src='<%= gif.image_path %>' alt='<%= gif.id %>'>
     <%= link_to "Gif-#{gif.id}", gif_path(gif) %>
+    <%= link_to 'Delete', admin_gif(gif), method: delete %>
   </div>
   <div class="favorite">
 

@@ -25,6 +25,22 @@ describe 'User visits a new gif page' do
 
       expect(current_path).to eq(gifs_path)
     end
+
+    it 'can delete a gif' do
+      admin = User.create(username:'admin', password: 'admin', role: 1)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      gif1 = Gif.create(image_path: 'https://media.giphy.com/media/YUHorv6RGc9zyoeupp/giphy.gif')
+      gif2 = Gif.create(image_path: 'https://media.giphy.com/media/1APg5tPRfzpn8zSIs2/giphy.gif')
+
+      visit gifs_page
+
+      click_on 'Delete'
+
+      expect(page).to_not have_content()
+
+    end
   end
 
   context 'As a default user' do
