@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     resources :gifs
   end
 
-  resources :gif, only: [:index]
+  resources :gifs, only: [:index, :show]
 end
