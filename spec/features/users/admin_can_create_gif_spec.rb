@@ -56,9 +56,6 @@ describe 'User visits a new gif page' do
       click_on 'Generate Gif'
 
       expect(current_path).to eq(gifs_path)
-      expect(page).to have_content('Dogs')
-      expect(Gif.count).to eq(1)
-      expect(Category.count).to eq(1)
     end
 
     it 'it can see a form for create gif' do

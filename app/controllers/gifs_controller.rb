@@ -1,7 +1,12 @@
 class GifsController < ApplicationController
 
   def index
-    @gifs = Gif.all
+    if params[:category]
+      @gifs = Gif.category_select(params[:category])
+      render 'gifs/categories'
+    else
+      @gifs = Gif.all
+    end
   end
 
   def show

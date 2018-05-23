@@ -20,8 +20,9 @@ describe 'A user can see gif index' do
     within("#gif-#{gif1.id}") do
       expect(page).to have_css("img[src*='#{gif1.image_path}']")
     end
-      within("#gif-#{gif2.id}") do
-        expect(page).to have_css("img[src*='#{gif2.image_path}']")
-      end
+
+    within("#gif-#{gif2.id}") do
+      expect(page).to have_css("img[src*='#{gif2.image_path}']")
+    end
   end
 end
