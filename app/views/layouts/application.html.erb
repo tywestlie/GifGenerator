@@ -11,20 +11,21 @@
 
   <body>
     <nav>
-      <%=link_to 'GifGenerator', root_path %>
-      <%= link_to 'All Gifs', gifs_path %>
-      <div id="nav-login">
-        <% if current_user != nil %>
-        <%= link_to "#{current_user.username}", user_path(current_user) %>
-        <%= link_to 'Log out', logout_path %>
-        <% else %>
-        <%= link_to 'Log in', login_path %>
-        <%end%>
-      </div>
+      <%=link_to 'GifGenerator', root_path, class: 'big-nav' %>
+      <%= link_to 'All Gifs', gifs_path, class: 'big-nav' %>
+
+      <% if current_user != nil %>
+        <%= link_to "#{current_user.username}", user_path(current_user), class: 'user-show' %>
+        <%= link_to 'Log out', logout_path, class: 'logger' %>
+      <% else %>
+        <%= link_to 'Log in', login_path, class: 'logger' %>
+      <%end%>
     </nav>
-    <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: name %>
-    <% end %>
+    <div class="flash-message">
+      <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: name %>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
