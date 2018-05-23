@@ -13,6 +13,7 @@ describe 'User visits a new gif page' do
     end
 
     it 'can create a new gif' do
+      category = 'Dogs'
       image_path = 'https://media.giphy.com/media/3o85xsGXVuYh8lM3EQ/giphy.gif'
       admin = User.create(username:'admin', password: 'admin', role: 1)
 
@@ -20,8 +21,8 @@ describe 'User visits a new gif page' do
 
       visit new_admin_gif_path
 
-      fill_in 'gif[image_path]', with: image_path
-      click_on 'Create Gif'
+      fill_in 'Category', with: category
+      click_on 'Generate Gif'
 
       expect(current_path).to eq(gifs_path)
     end
@@ -30,9 +31,9 @@ describe 'User visits a new gif page' do
       admin = User.create(username:'admin', password: 'admin', role: 1)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-
-      gif1 = Gif.create(image_path: 'https://media.giphy.com/media/YUHorv6RGc9zyoeupp/giphy.gif')
-      gif2 = Gif.create(image_path: 'https://media.giphy.com/media/1APg5tPRfzpn8zSIs2/giphy.gif')
+      category = Category.create(name: 'Ham Sandwich')
+      gif1 = category.gifs.create(image_path: 'https://media.giphy.com/media/YUHorv6RGc9zyoeupp/giphy.gif')
+      gif2 = category.gifs.create(image_path: 'https://media.giphy.com/media/1APg5tPRfzpn8zSIs2/giphy.gif')
 
       visit gifs_path
 
