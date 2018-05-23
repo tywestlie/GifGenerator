@@ -42,7 +42,7 @@ describe 'Visitor' do
       end
 
       visit user_path(user)
-      
+
       within('div.user-logout') do
         click_on 'Log out'
       end
@@ -57,8 +57,8 @@ describe 'Visitor' do
       user = User.create!(username: username, password: password)
 
       visit '/'
-
-      within('div#nav-login') do
+      
+      within('nav') do
         click_on 'Log in'
       end
 
