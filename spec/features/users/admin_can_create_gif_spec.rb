@@ -35,16 +35,27 @@ describe 'User visits a new gif page' do
       gif2 = Gif.create(image_path: 'https://media.giphy.com/media/1APg5tPRfzpn8zSIs2/giphy.gif')
 
       visit gifs_path
-      save_and_open_page
 
       within("#gif-#{gif1.id}") do
         click_on 'Delete'
       end
 
-      within("#gif-#{gif1.id}") do
-        expect(page).to_not have_css("img[src*='#{gif1.image_path}']")
-      end
+
+      expect(page).to_not have_css("gif-#{gif1.id}")
     end
+
+  context 'As a default user' do
+    it 'cannot delete a gif from index' do
+      user = User.create(username: "user", password: 'password', role: 0)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit gifs_path
+
+      
+    end
+  end
+  end
   end
 
   context 'As a default user' do
