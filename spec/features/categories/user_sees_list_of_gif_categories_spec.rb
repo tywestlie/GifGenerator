@@ -31,22 +31,5 @@ describe 'Visitor visits a home page' do
 
     expect(current_path).to eq(gifs_path)
   end
-
-  it 'can see a page with gifs from one category' do
-    user = User.create(username: "user", password: 'password', role: 0)
-
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    category1 = Category.create(name: 'Ham Sandwich')
-    gif1 = category1.gifs.create(image_path: 'https://media.giphy.com/media/YUHorv6RGc9zyoeupp/giphy.gif')
-    category2 = Category.create(name: 'Turkey Sandwich')
-    category2.gifs.create(image_path: 'https://media.giphy.com/media/v2CaxWLFw4a5y/giphy.gif')
-
-    visit "/gifs?=category=#{category1.name}"
-    save_and_open_page
-
-    within("#gif#{gif1.id}") do
-      expect(page).to have_css("img[src*='#{gif1.image_path}']")
-    end
-  end
 end
 end
