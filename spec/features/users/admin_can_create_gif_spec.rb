@@ -52,9 +52,8 @@ describe 'User visits a new gif page' do
 
       visit gifs_path
 
-      
+
     end
-  end
   end
   end
 

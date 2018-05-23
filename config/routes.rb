@@ -4,11 +4,15 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-  resources :users
+
+  resources :users, shallow: true do
+    resources :favorites
+  end
 
   namespace :admin do
     resources :gifs
   end
+
 
   resources :gifs, only: [:index, :show]
 end

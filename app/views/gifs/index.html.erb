@@ -6,8 +6,15 @@
 <% @gifs.each do |gif| %>
   <div id="gif-<%= gif.id%>">
     <%= link_to image_tag(gif.image_path, alt: gif.id), gif_path(gif)%>
-<% if current_user.admin? %>
-    <%= link_to 'Delete', admin_gif_path(gif), method: 'delete' %>
+    <% if current_user.admin? %>
+      <%= link_to 'Delete', admin_gif_path(gif), method: 'delete' %>
     <%end%>
+  </div>
+  <div class="favorite">
+    <%= form_tag new_user_favorite_path do %>
+      <%= hidden_field_tag :gif_id, gif.id  %>
+      <%= hidden_field_tag :user_id, current_user.id %>
+      <%= submit_tag "Add to Favorites" %>
+      <%end%>
   </div>
 <%end%>
