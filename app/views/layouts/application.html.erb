@@ -10,9 +10,6 @@
   </head>
 
   <body>
-    <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: name %>
-    <% end %>
     <nav>
       <%=link_to 'GifGenerator', root_path %>
       <div id="nav-login">
@@ -23,6 +20,9 @@
         <%end%>
       </div>
     </nav>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
