@@ -1,23 +1,26 @@
 class FavoritesController < ApplicationController
 
   def create
-    @favorite = Favorite.create(favorite_params)
+    favorite = Gif.find(params[:gif_id])
     user = User.find(params[:user_id])
-    if user.favorites.include?(gif_id: params[:gif_id])
+    if user.gifs.include?(favorite)
       flash[:error] = 'Already in Favorites'
     else
-      if @favorite.save
+      if favorite
+        user.gifs << favorite
         flash[:success] = 'Added to Favorites!'
-        redirect_to gifs_path
       else
         render :file => 'public/404'
       end
     end
+    redirect_to gifs_path
   end
 
   def destroy
-    favorite = Favorite.find(favorite_params)
+    favorite = Favorite.find(params[:id])
     favorite.destroy
+
+    redirect_to user_path(current_user)
   end
 
   private

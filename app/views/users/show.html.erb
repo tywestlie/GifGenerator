@@ -2,4 +2,5 @@
 <%= link_to 'Log out', logout_path %>
 <%@gifs.each do |gif| %>
   <img src="<%= gif.image_path%>" alt="picture">
+  <%= link_to 'Unfavorite', favorite_path(current_user.favorites.find_by(gif_id: gif.id)), method: 'delete' %>
 <%end%>
