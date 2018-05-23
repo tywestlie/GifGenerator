@@ -7,5 +7,10 @@
 
 <h3>Gif Categories</h3>
 <% @categories.each do |category| %>
-    <%=link_to category.name, "/gifs?category=#{category.name}" %>
+<div class="category-<%= category.id%>">
+  <%=link_to category.name, "/gifs?category=#{category.name}" %>
+    <% if current_admin? %>
+      <%=link_to 'Delete', admin_category_path(category), method: 'delete' %>
+    <% end %>
+</div>
   <%end%>
