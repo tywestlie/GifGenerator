@@ -34,12 +34,16 @@ describe 'User visits a new gif page' do
       gif1 = Gif.create(image_path: 'https://media.giphy.com/media/YUHorv6RGc9zyoeupp/giphy.gif')
       gif2 = Gif.create(image_path: 'https://media.giphy.com/media/1APg5tPRfzpn8zSIs2/giphy.gif')
 
-      visit gifs_page
+      visit gifs_path
+      save_and_open_page
 
-      click_on 'Delete'
+      within("#gif-#{gif1.id}") do
+        click_on 'Delete'
+      end
 
-      expect(page).to_not have_content()
-
+      within("#gif-#{gif1.id}") do
+        expect(page).to_not have_css("img[src*='#{gif1.image_path}']")
+      end
     end
   end
 

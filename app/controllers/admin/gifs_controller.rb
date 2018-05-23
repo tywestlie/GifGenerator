@@ -12,7 +12,7 @@ class Admin::GifsController < Admin::BaseController
   def destroy
     gif = Gif.find(params[:id])
     gif.destroy
-    redirect_to gifs_page
+    redirect_to gifs_path
   end
 
   private

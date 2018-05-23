@@ -1,15 +1,12 @@
 <h1>Gifs</h1>
-<% if current_admin? %>
+<% if current_user.admin? %>
 <%= link_to 'Add New Gif', new_admin_gif_path %>
 <% end %>
 
 <% @gifs.each do |gif| %>
   <div id="gif-<%= gif.id%>">
-    <img  src='<%= gif.image_path %>' alt='<%= gif.id %>'>
-    <%= link_to "Gif-#{gif.id}", gif_path(gif) %>
-    <%= link_to 'Delete', admin_gif(gif), method: delete %>
-  </div>
-  <div class="favorite">
+    <%= link_to image_tag(gif.image_path, alt: gif.id), gif_path(gif)%>
 
+    <%= link_to 'Delete', admin_gif_path(gif), method: 'delete' %>
   </div>
 <%end%>

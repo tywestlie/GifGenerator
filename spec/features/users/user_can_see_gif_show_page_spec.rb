@@ -10,7 +10,7 @@ describe 'default user visits gif index page' do
 
     visit gifs_path
 
-    click_on "Gif-#{gif1.id}"
+    click_on "#{gif1.id}"
 
     expect(current_path).to eq(gif_path(gif1))
   end
@@ -23,8 +23,8 @@ describe 'default user visits gif index page' do
     gif1 = Gif.create(image_path: 'https://media.giphy.com/media/YUHorv6RGc9zyoeupp/giphy.gif')
 
     visit gifs_path
-
-    click_on "Gif-#{gif1.id}"
+    
+    click_on "#{gif1.id}"
 
     expect(current_path).to eq(gif_path(gif1))
     within("#gif-#{gif1.id}") do
