@@ -44,6 +44,33 @@ describe 'User visits a new gif page' do
       expect(page).to_not have_css("gif-#{gif1.id}")
     end
 
+    it 'can create a giphy' do
+      admin = User.create(username:'admin', password: 'admin', role: 1)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      visit new_admin_gif_path
+
+      fill_in 'Category', with: 'Dogs'
+      click_on 'Generate Gif'
+
+      expect(current_path).to eq(gifs_path)
+      expect(page).to have_content('Dogs')
+      expect(Gif.count).to eq(1)
+      expect(Category.count).to eq(1)
+    end
+
+    it 'it can see a form for create gif' do
+      admin = User.create(username:'admin', password: 'admin', role: 1)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      visit new_admin_gif_path
+
+      expect(page).to have_field('Category')
+      expect(page).to have_button('Generate Gif')
+    end
+
   context 'As a default user' do
     it 'cannot delete a gif from index' do
       user = User.create(username: "user", password: 'password', role: 0)

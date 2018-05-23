@@ -2,7 +2,7 @@
 <% if current_user.admin? %>
 <%= link_to 'Add New Gif', new_admin_gif_path %>
 <% end %>
-
+<h1>Dogs</h1>
 <% @gifs.each do |gif| %>
   <div id="gif-<%= gif.id%>">
     <%= link_to image_tag(gif.image_path, alt: gif.id), gif_path(gif)%>
@@ -10,7 +10,7 @@
       <%= link_to 'Delete', admin_gif_path(gif), method: 'delete' %>
     <%end%>
   </div>
-  
+
   <div class="favorite">
     <%= form_tag user_favorites_path(current_user) do %>
       <%= hidden_field_tag :user_id, current_user.id %>
