@@ -10,9 +10,9 @@
       <%= link_to 'Delete', admin_gif_path(gif), method: 'delete' %>
     <%end%>
   </div>
-  <% #binding.pry %>
+  
   <div class="favorite">
-    <%= form_tag new_user_favorite_path(current_user), method: 'get' do %>
+    <%= form_tag user_favorites_path(current_user) do %>
       <%= hidden_field_tag :user_id, current_user.id %>
       <%= hidden_field_tag :gif_id, gif.id  %>
       <%= submit_tag "Add To Favorites" %>
