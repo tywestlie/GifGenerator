@@ -4,3 +4,8 @@
 <%= link_to 'Gifs', gifs_path %>
 
 <%= link_to 'Create Account', new_user_path %>
+
+<h3>Gif Categories</h3>
+<% @categories.each do |category| %>
+    <%=link_to category.name, "/gifs?category=#{category.name}" %>
+  <%end%>

@@ -5,8 +5,8 @@ describe 'default user visits gif index page' do
     user = User.create(username: "user", password: 'password', role: 0)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-
-    gif1 = Gif.create(image_path: 'https://media.giphy.com/media/YUHorv6RGc9zyoeupp/giphy.gif')
+    category = Category.create(name: 'Ham Sandwich')
+    gif1 = category.gifs.create(image_path: 'https://media.giphy.com/media/YUHorv6RGc9zyoeupp/giphy.gif')
 
     visit gifs_path
 
@@ -20,7 +20,9 @@ describe 'default user visits gif index page' do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    gif1 = Gif.create(image_path: 'https://media.giphy.com/media/YUHorv6RGc9zyoeupp/giphy.gif')
+    category = Category.create(name: 'Ham Sandwich')
+
+    gif1 = category.gifs.create(image_path: 'https://media.giphy.com/media/YUHorv6RGc9zyoeupp/giphy.gif')
 
     visit gifs_path
     

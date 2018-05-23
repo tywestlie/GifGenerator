@@ -12,4 +12,4 @@ gifs.each do |image_path|
   Gif.create(image_path: image_path)
 end
 
-User.create(username: 'admin', password: 'password', role: 1)
+User.create(username: 'admin', password: ENV['admin_pass'], role: 1)

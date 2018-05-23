@@ -42,8 +42,10 @@ describe 'Visitor' do
       end
 
       visit user_path(user)
-
-      click_on 'Log out'
+      
+      within('div.user-logout') do
+        click_on 'Log out'
+      end
 
       expect(current_path).to eq(root_path)
       expect(page).to have_content('GifGenerator')
