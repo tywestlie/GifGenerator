@@ -1,5 +1,5 @@
 <h1>Welcome, <%= current_user.username %></h1>
 <%= link_to 'Log out', logout_path %>
-<%@favorites.each do |f| %>
-<%=f.id%>
+<%@gifs.each do |gif| %>
+  <img src="<%= gif.image_path%>" alt="picture">
 <%end%>
