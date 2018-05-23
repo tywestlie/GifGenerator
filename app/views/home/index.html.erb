@@ -9,6 +9,8 @@
 <% @categories.each do |category| %>
 <div class="category-<%= category.id%>">
   <%=link_to category.name, "/gifs?category=#{category.name}" %>
-  <%=link_to 'Delete', admin_category_path(category), method: 'delete' %>
+    <% if current_admin? %>
+      <%=link_to 'Delete', admin_category_path(category), method: 'delete' %>
+    <% end %>
 </div>
   <%end%>
