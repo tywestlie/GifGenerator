@@ -14,19 +14,20 @@
  *= require_self
  */
 body {
-
   background-color: pink;
   font-family: serif;
+
 }
 
 nav {
   width: 100vw;
   background-color:grey;
-  height: 35%;
+  height: 30%;
 }
 
 nav a {
   text-decoration: none;
+  color: white;
 }
 
 .big-nav {
@@ -36,5 +37,37 @@ nav a {
 
 .logger {
   float: right;
-  padding-right: 1em;
+  padding-right: 1.5em;
+}
+
+ #index-header {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 33.33%;
+  border: 3px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+.user-login {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 250px;
+}
+
+section {
+  margin: auto;
+  padding: 10px;
+}
+
+section#login form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+section#login form div{
+  margin-bottom: 10px;
 }

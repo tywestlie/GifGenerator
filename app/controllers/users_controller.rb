@@ -5,7 +5,8 @@ class UsersController < ApplicationController
     @favorites = Favorite.where(user_id: params[:id])
 
     @gifs = @favorites.map do |favorite|
-        Gif.find_by("id = #{favorite.gif_id}")
+      Gif.find_by("id = #{favorite.gif_id}")
+
     end
   end
 
