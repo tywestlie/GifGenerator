@@ -1,8 +1,15 @@
-<h1>Welcome, <%= current_user.username %></h1>
+<h1 class='kenny-logsout'>Welcome, <%= current_user.username %></h1>
 <div class="user-logout">
-  <%= link_to 'Log out', logout_path %>
+  <%= link_to 'Log out', logout_path, class: 'kenny-logsout' %>
 </div>
-<%@gifs.each do |gif| %>
-  <img src="<%= gif.image_path%>" alt="picture">
-  <%= link_to 'Unfavorite', favorite_path(current_user.favorites.find_by(gif_id: gif.id)), method: 'delete' %>
-<%end%>
+
+<section class='all-gifs'>
+  <%@gifs.each do |gif| %>
+  <div class="gif-thumbnail">
+    <img class='gif' src="<%= gif.image_path%>" alt="picture">
+    <div class="btn-container">
+      <%= link_to 'Unfavorite', favorite_path(current_user.favorites.find_by(gif_id: gif.id)), class: 'unfavorite', method: 'delete' %>
+    </div>
+  </div>
+  <%end%>
+</section>

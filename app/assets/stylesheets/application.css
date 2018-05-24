@@ -14,18 +14,30 @@
  *= require_self
  */
 body {
+  background-color: #8c3d5d;
+  font-family: Raleway;
 
-  background-color: pink;
-  font-family: serif;
+}
+h1 {
+  color: white;
 }
 
 nav {
   width: 100vw;
-  background-color:grey;
-  height: 35%;
+  background-color:#003d5d;
+  height: 30%;
+}
+
+header {
+  color: white;
 }
 
 nav a {
+  text-decoration: none;
+  color: white;
+}
+
+a.create-account {
   text-decoration: none;
 }
 
@@ -36,5 +48,123 @@ nav a {
 
 .logger {
   float: right;
-  padding-right: 1em;
+  padding-right: 1.5em;
+}
+
+#catys {
+  padding-left: 15px;
+  color: white;
+}
+ #index-header {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 33.33%;
+  padding: 10px;
+  text-align: center;
+}
+
+.user-login {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 250px;
+}
+
+section {
+  margin: auto;
+  padding: 10px;
+}
+
+section.login-new form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+section.login-new form div{
+  margin-bottom: 10px;
+}
+
+section.login-new {
+  background-color: grey;
+  color: white;
+}
+
+section.all-gifs {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gif-thumbnail {
+  width: 22%;
+  padding: 15px;
+}
+
+.gif {
+  width: 200px;
+  height: 200px;
+}
+
+.gif-show {
+  width: 400px;
+  height: 500px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+section.categories {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.gif-index-home{
+  text-decoration: none;
+}
+
+.category-thumbnail {
+  display: flex;
+  flex-direction: column;
+}
+
+.unfavorite {
+  text-decoration: none;
+  background-color: white;
+}
+
+a.category-link {
+  text-decoration: none;
+  background-color: white;
+  padding: 25px;
+  width: 95px;
+  height: auto;
+  text-align: center;
+  margin: 5px;
+}
+
+section.show-gif {
+  margin: auto;
+  width: 50%;
+  padding: 10px
+}
+
+.kenny-logsout {
+  color: white;
+  padding-left: 15px;
+}
+
+.home-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+#im-sleepy {
+  padding-left: 20px;
 }
