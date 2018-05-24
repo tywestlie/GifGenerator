@@ -5,14 +5,18 @@
 
 <%= link_to 'Gifs', gifs_path %>
 
-<%= link_to 'Create Account', new_user_path %>
-
-<h3>Gif Categories</h3>
-<% @categories.each do |category| %>
-<div class="category-<%= category.id%>">
-  <%=link_to category.name, "/gifs?category=#{category.name}" %>
-    <% if current_admin? %>
-      <%=link_to 'Delete', admin_category_path(category), method: 'delete' %>
-    <% end %>
+<div class="create">
+  <%= link_to 'Create Account', new_user_path, class: 'create-account' %>
 </div>
+
+<h3>Categories</h3>
+<section class='categories'>
+  <% @categories.each do |category| %>
+  <div class='category-thumbnail' id="category-<%= category.id%>">
+    <%=link_to category.name, "/gifs?category=#{category.name}", class: 'category-link' %>
+    <% if current_admin? %>
+    <%=link_to 'Delete', admin_category_path(category), method: 'delete' %>
+    <% end %>
+  </div>
   <%end%>
+</section>
