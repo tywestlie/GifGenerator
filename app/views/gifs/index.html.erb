@@ -3,20 +3,27 @@
 <%= link_to 'Add New Gif', new_admin_gif_path %>
 <% end %>
 
-<% @gifs.each do |gif| %>
-  <div id="gif-<%= gif.id%>">
-    <%= link_to image_tag(gif.image_path, alt: gif.id), gif_path(gif)%>
-    <% if current_admin? %>
+<section class='all-gifs'>
+  <% @gifs.each do |gif| %>
+  <div class="gif-thumbnail">
+    <div class='gif'id="gif-<%= gif.id%>">
+      <%= link_to image_tag(gif.image_path, class: 'gif', alt: gif.id), gif_path(gif)%>
+    </div>
+    <div class='btn-container'>
+      <% if current_admin? %>
       <%= link_to 'Delete', admin_gif_path(gif), method: 'delete' %>
-    <%end%>
-  </div>
-  <%if current_user != nil %>
-  <div class="favorite">
-    <%= form_tag user_favorites_path(current_user) do %>
-      <%= hidden_field_tag :user_id, current_user.id %>
-      <%= hidden_field_tag :gif_id, gif.id  %>
-      <%= submit_tag "Add To Favorites" %>
       <%end%>
+      <%if current_user != nil %>
+      <div class="favorite">
+        <%= form_tag user_favorites_path(current_user) do %>
+        <%= hidden_field_tag :user_id, current_user.id %>
+        <%= hidden_field_tag :gif_id, gif.id  %>
+        <%= submit_tag "Add To Favorites" %>
+        <%end%>
+      </div>
+      <%end%>
+    </div>
   </div>
-  <%end%>
+</div>
 <%end%>
+</section>

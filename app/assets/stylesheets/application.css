@@ -71,3 +71,31 @@ section#login form {
 section#login form div{
   margin-bottom: 10px;
 }
+
+section#login {
+  background-color: grey;
+  color: white;
+}
+
+section.all-gifs {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gif-thumbnail {
+  width: 18%;
+  padding: 5px;
+}
+
+.gif {
+  width: 200px;
+  height: 200px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
