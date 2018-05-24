@@ -1,22 +1,26 @@
 <header id='index-header'>
   <h1>GifGenerator</h1>
   <h3>Where all your gif dreams come true!</h3>
+  <div class="home-btns">
+    <%= link_to 'All the Gifs', gifs_path, class: 'gif-index-home' %>
+    <%= link_to 'Create Account', new_user_path, class: 'create-account' %>
+  </div>
 </header>
 
-<%= link_to 'Gifs', gifs_path %>
 
-<div class="create">
-  <%= link_to 'Create Account', new_user_path, class: 'create-account' %>
+
+<div class="category-home">
+  <h3>Categories</h3>
+  <section class='categories'>
+    <% @categories.each do |category| %>
+    <div class='category-thumbnail' id="category-<%= category.id%>">
+      <%=link_to category.name, "/gifs?category=#{category.name}", class: 'category-link' %>
+      <div class="btn-container">
+        <% if current_admin? %>
+        <%=link_to 'Delete', admin_category_path(category), method: 'delete' %>
+        <% end %>
+      </div>
+    </div>
+    <%end%>
+  </section>
 </div>
-
-<h3>Categories</h3>
-<section class='categories'>
-  <% @categories.each do |category| %>
-  <div class='category-thumbnail' id="category-<%= category.id%>">
-    <%=link_to category.name, "/gifs?category=#{category.name}", class: 'category-link' %>
-    <% if current_admin? %>
-    <%=link_to 'Delete', admin_category_path(category), method: 'delete' %>
-    <% end %>
-  </div>
-  <%end%>
-</section>

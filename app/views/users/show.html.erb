@@ -2,12 +2,13 @@
 <div class="user-logout">
   <%= link_to 'Log out', logout_path %>
 </div>
+
 <section class='all-gifs'>
   <%@gifs.each do |gif| %>
   <div class="gif-thumbnail">
     <img class='gif' src="<%= gif.image_path%>" alt="picture">
     <div class="btn-container">
-      <%= link_to 'Unfavorite', favorite_path(current_user.favorites.find_by(gif_id: gif.id)), method: 'delete' %>
+      <%= link_to 'Unfavorite', favorite_path(current_user.favorites.find_by(gif_id: gif.id)), class: 'unfavorite', method: 'delete' %>
     </div>
   </div>
   <%end%>

@@ -32,8 +32,6 @@ nav a {
 
 a.create-account {
   text-decoration: none;
-  padding: auto;
-  width: 50%;
 }
 
 .big-nav {
@@ -114,20 +112,28 @@ section.all-gifs {
 section.categories {
   display: flex;
   flex-wrap: wrap;
-  
+
+}
+.gif-index-home{
+  text-decoration: none;
 }
 
 .category-thumbnail {
   display: flex;
-  flex-direction: rows;
+  flex-direction: column;
+}
+
+.unfavorite {
+  text-decoration: none;
+  background-color: white;
 }
 
 a.category-link {
   text-decoration: none;
   background-color: white;
-  padding: 5px;
+  padding: 25px;
   width: 100px;
-  height: 50px;
+  height: auto;
   text-align: center;
   margin: 5px;
 }
@@ -136,4 +142,9 @@ section.show-gif {
   margin: auto;
   width: 50%;
   padding: 10px
+}
+
+.home-btns {
+  display: flex;
+  justify-content: space-between;
 }
