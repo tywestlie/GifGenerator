@@ -14,15 +14,22 @@
  *= require_self
  */
 body {
-  background-color: pink;
-  font-family: serif;
+  background-color: #8c3d5d;
+  font-family: Raleway;
 
+}
+h1 {
+  color: white;
 }
 
 nav {
   width: 100vw;
-  background-color:grey;
+  background-color:#003d5d;
   height: 30%;
+}
+
+header {
+  color: white;
 }
 
 nav a {
@@ -44,6 +51,10 @@ a.create-account {
   padding-right: 1.5em;
 }
 
+#catys {
+  padding-left: 15px;
+  color: white;
+}
  #index-header {
   margin-left: auto;
   margin-right: auto;
@@ -88,7 +99,7 @@ section.all-gifs {
 }
 
 .gif-thumbnail {
-  width: 18%;
+  width: 22%;
   padding: 15px;
 }
 
@@ -132,7 +143,7 @@ a.category-link {
   text-decoration: none;
   background-color: white;
   padding: 25px;
-  width: 100px;
+  width: 95px;
   height: auto;
   text-align: center;
   margin: 5px;
@@ -144,7 +155,16 @@ section.show-gif {
   padding: 10px
 }
 
+.kenny-logsout {
+  color: white;
+  padding-left: 15px;
+}
+
 .home-btns {
   display: flex;
   justify-content: space-between;
+}
+
+#im-sleepy {
+  padding-left: 20px;
 }
