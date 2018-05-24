@@ -67,17 +67,17 @@ section {
   padding: 10px;
 }
 
-section#login form {
+section.login-new form {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
 
-section#login form div{
+section.login-new form div{
   margin-bottom: 10px;
 }
 
-section#login {
+section.login-new {
   background-color: grey;
   color: white;
 }
@@ -99,6 +99,11 @@ section.all-gifs {
   height: 200px;
 }
 
+.gif-show {
+  width: 400px;
+  height: 500px;
+}
+
 .btn-container {
   display: flex;
   flex-direction: column;
@@ -109,6 +114,7 @@ section.all-gifs {
 section.categories {
   display: flex;
   flex-wrap: wrap;
+  
 }
 
 .category-thumbnail {
@@ -124,4 +130,10 @@ a.category-link {
   height: 50px;
   text-align: center;
   margin: 5px;
+}
+
+section.show-gif {
+  margin: auto;
+  width: 50%;
+  padding: 10px
 }
